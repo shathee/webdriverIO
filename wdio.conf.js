@@ -22,6 +22,7 @@ exports.config = {
   hostname: "localhost",
 
   port: 30007,
+  //port: 4444, // use this port if you are using for docker only
 
   path: "/",
   //

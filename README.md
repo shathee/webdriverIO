@@ -24,7 +24,7 @@ This environment uses WebdriverIO testing framework with Mocha framework. Additi
 
     ### To Use With Docker only
 1. Docker run `docker compose up`
-2. Open `wdio.conf.js` set `port=4444`
+2. Open `wdio.conf.js` set `port=4444` (By default the port is set to 30007 which is for kubernetes)
 
     ### To use with Kubernetes
 3. To deploy in kubernetes run `kubectl apply -f .\kube\` 
