@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chrome
+  name: chrome
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chrome
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: chrome
+    spec:
+      containers:
+        - env:
+            - name: SE_EVENT_BUS_HOST
+              value: selenium-hub
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
+          image: selenium/node-chrome:4.1.1-20220121
+          name: chrome
+          ports:
+            - containerPort: 5900
+          resources: {}
+      restartPolicy: Always

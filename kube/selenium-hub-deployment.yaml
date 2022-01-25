@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selenium-hub
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: selenium-hub
+    spec:
+      containers:
+        - image: selenium/hub:4.1.1-20220121
+          name: selenium-hub
+          ports:
+            - containerPort: 4442
+            - containerPort: 4443
+            - containerPort: 4444
+          resources: {}
+      restartPolicy: Always

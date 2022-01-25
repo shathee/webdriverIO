@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: firefox
+  name: firefox
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: firefox
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: firefox
+    spec:
+      containers:
+        - env:
+            - name: SE_EVENT_BUS_HOST
+              value: selenium-hub
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
+          image: selenium/node-firefox:4.1.1-20220121
+          name: firefox
+          ports:
+            - containerPort: 5901
+          resources: {}
+      restartPolicy: Always
