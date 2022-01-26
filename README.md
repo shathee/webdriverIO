@@ -21,11 +21,11 @@ This environment uses WebdriverIO testing framework with Mocha framework. Additi
 1. Get the repository to your local machine
 2. Run npm install inside the directory
 3. Run Docker (Check if you have kubernetes enabled if you are using docker desktop)
-<kbd>
+
     ### To Use With Docker only
 1. Docker run `docker compose up`
 2. Open `wdio.conf.js` set `port=4444` (By default the port is set to 30007 which is for kubernetes)
-</kbd>
+
     ### To use with Kubernetes
 3. To deploy in kubernetes run `kubectl apply -f .\kube\` 
    
